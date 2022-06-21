@@ -56,19 +56,92 @@ Hàm get_text() có chức năng là máy tính sẽ cố gắng nhận dạng �
 **5. Chức năng giao tiếp, chào hỏi**<br>
 ![image](https://user-images.githubusercontent.com/48849879/174771371-2bfbea76-d1c5-41fc-a4d9-f8b7e05672a4.png) <br>
 Nội dung chức năng này là để giao tiếp thông thường giữa người và máy tính. Đơn cử như: chào hỏi, hỏi thăm sức khỏe hay nói về thông tin trợ lý ảo. <br>
-Ở đây sử dụng biến day_time để lưu giờ hiện tại trong ngày. Sau đó, biến sẽ được so sánh với các mốc giờ trong ngày để đưa ra lời chào. <br><br>
+Ở đây sử dụng biến day_time để lưu giờ hiện tại trong ngày. Sau đó, biến sẽ được so sánh với các mốc giờ trong ngày để đưa ra lời chào. <br>
+
+
+
+https://user-images.githubusercontent.com/48849879/174858550-247ea182-0526-472e-bf69-3f00302fb1f9.mp4
+
+
+ <br>
+
+
 **6. Chức năng hiển thị các khả năng của trợ lý ảo**<br>
 ![image](https://user-images.githubusercontent.com/48849879/174855360-f6946758-d6ed-4559-ac7b-9b9c28fbf45d.png)<br>
-Hàm đọc lại 10 chức năng mà trợ lý ảo có thể thực hiện được phòng khi người sử dụng chưa biết công dụng của trợ lý ảo.<br>
+Hàm đọc lại 6 chức năng mà trợ lý ảo có thể thực hiện được phòng khi người sử dụng chưa biết công dụng của trợ lý ảo.<br>
 
 
-https://user-images.githubusercontent.com/48849879/174856147-39d03fd2-11c8-49e9-aa6f-f5ae76c78e70.mp4
+
+https://user-images.githubusercontent.com/48849879/174858714-441c4536-26fe-4453-9949-dee57f5fb21d.mp4
 
 
-**7. Chức năng hiển thị thời gian**<br>
+ <br>
+
+
+**7. Chức năng cảm ơn + kết thúc**<br>
+Đây là hàm sử dụng để giao tiếp cơ bản với bot. <br>
+
+
+https://user-images.githubusercontent.com/48849879/174857019-b8b7e6ac-efd1-46a5-90ed-4ec1cc7bd115.mp4
+
+
+**8. Chức năng hiển thị thời gian**<br>
 ![image](https://user-images.githubusercontent.com/48849879/174854854-fb413df9-1060-43fa-a286-4c2e8350e97a.png)<br>
  Sử dụng thư viện datetime để lưu thông tin thời gian tại thời điểm hiện tại trong ngày rồi lưu vào biến now.
-https://user-images.githubusercontent.com/48849879/174855043-b51560aa-10b3-4816-928b-e40ade16435d.mp4
+
+
+https://user-images.githubusercontent.com/48849879/174858870-030b45d2-0400-43fa-b730-3c31a24fca90.mp4
+
+
+
+ <br>
+
+
+**9. Chức năng mở ứng dụng hệ thống, website và chức năng tìm kiếm từ khóa trên Google**<br>
+![image](https://user-images.githubusercontent.com/48849879/174857474-c83ad097-c0a7-4686-9dfc-e1c74e314337.png)<br>
+Khi xuất hiện các từ khóa đặc biệt như google hay word hay excel trong text thì dùng hàm os.startfile() để mở các file ứng dụng từ hệ thống. <br>
+Chỉ kiểm tra từ google hay word hay excel trong text là chưa đủ. Cần giới hạn ngữ nghĩa của text ở trong hàm assistant để bot có thể hiểu là mở chương trình Google Chrome, Word, Excel chứ không nhầm lẫn với các chức năng khác.<br>
+![image](https://user-images.githubusercontent.com/48849879/174857577-9b5ad4a6-c311-4810-a411-a8fe13fd69c2.png)<br>
+Sử dụng hàm re.search() (Hàm tìm kiếm trong biểu thức chính quy Regular Expression) để tách phần domain sau chữ "mở" trong text rồi ghép với phần tiền tố "https://www." để tạo thành đường dẫn url của web. Sau đó, sử dụng webbroser.open(url) để mở trang web mình yêu cầu.<br>
+Nếu domain được hàm re.search() tìm thấy thì sẽ thực hiện chức năng mở website và hàm open_website được trả về giá trị là True, còn nếu domain không được tìm thấy thì sẽ không thực hiện chức năng gì cả và hàm open_website trả về giá trị là False.<br>
+
+
+https://user-images.githubusercontent.com/48849879/174858895-018dd46c-d8ae-40e7-a406-2f325d26463d.mp4
+
+
+
+ <br>
+
+
+**10. Chức năng tìm định nghĩa trên từ điển wikipedia**<br>
+![image](https://user-images.githubusercontent.com/48849879/174859053-3b5711cd-6bb9-4dff-b4be-841aed782e76.png)<br>
+Hàm tìm kiếm của thư viện wikipedia sẽ tìm kiếm chủ đề được yêu cầu và trích xuất 500 ký tự đầu tiên (nếu không chỉ định giới hạn, bot sẽ đọc toàn bộ trang). Wikipedia là một thư viện Python giúp dễ dàng truy cập và phân tích dữ liệu từ Wikipedia.<br>
+
+Đầu tiên sử dụng hàm get_text() để lấy thông tin về thứ mình muốn định nghĩa rồi lưu vào biến text.<br>
+
+Sau đó, gọi hàm wikipedia.summary(text).split('\n') để lưu lại thành một list các đoạn nội dung mà wikipedia tìm kiếm được.<br>
+
+Tiếp theo, đọc đoạn định nghĩa đầu tiên. Nếu có yêu cầu đọc thêm các nội dung sau thì mình phải yêu cầu là "có" còn nếu không yêu cầu thì trợ lý ảo sẽ dừng đọc nội dung trong phần contents.<br>
+
+
+https://user-images.githubusercontent.com/48849879/174859262-d10936a7-310e-43fe-b558-b96323985bce.mp4
+
+
+<br>
+
+**11. Chức năng phát nhạc trên Youtube**<br>
+![image](https://user-images.githubusercontent.com/48849879/174859378-b69db1f5-594b-48b8-b3fa-40676f4d563c.png)<br>
+Gọi hàm get_text() để lấy thông tin tên bài hát muốn phát rồi lưu vào biến mysong.<br>
+
+Gọi vòng While là vì thực hiện tìm kiếm sử dụng mạng Internet nên sẽ có lúc kết nối yếu không tìm thấy. Chạy While True khi nào tìm thấy thì thôi.<br>
+
+Biến url lưu đường dẫn đến kết quả đầu tiên khi tìm kiếm trên Youtube. Dùng hàm webbrowser.open(url) mở đường dẫn url đến video vừa được tìm kiếm trên Google Chrome để phát nhạc.<br>
+
+
+https://user-images.githubusercontent.com/48849879/174859554-59815228-f76d-4cc9-b4e4-4bbb7d4fe2f9.mp4
+
+
+<br>
 
 
 
