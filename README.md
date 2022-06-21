@@ -59,8 +59,12 @@ Nội dung chức năng này là để giao tiếp thông thường giữa ngư�
 Ở đây sử dụng biến day_time để lưu giờ hiện tại trong ngày. Sau đó, biến sẽ được so sánh với các mốc giờ trong ngày để đưa ra lời chào. <br><br>
 **6. Chức năng hiển thị các khả năng của trợ lý ảo**<br>
 ![image](https://user-images.githubusercontent.com/48849879/174855360-f6946758-d6ed-4559-ac7b-9b9c28fbf45d.png)<br>
-Hàm đọc lại 10 chức năng mà trợ lý ảo có thể thực hiện được phòng khi người sử dụng chưa biết công dụng của trợ lý ảo.
-https://user-images.githubusercontent.com/48849879/174855462-42c5203f-7d68-4b4b-9f35-e97a706aa96e.mp4
+Hàm đọc lại 10 chức năng mà trợ lý ảo có thể thực hiện được phòng khi người sử dụng chưa biết công dụng của trợ lý ảo.<br>
+
+
+https://user-images.githubusercontent.com/48849879/174856147-39d03fd2-11c8-49e9-aa6f-f5ae76c78e70.mp4
+
+
 **7. Chức năng hiển thị thời gian**<br>
 ![image](https://user-images.githubusercontent.com/48849879/174854854-fb413df9-1060-43fa-a286-4c2e8350e97a.png)<br>
  Sử dụng thư viện datetime để lưu thông tin thời gian tại thời điểm hiện tại trong ngày rồi lưu vào biến now.
